@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 end
 
 Rails.application.routes.draw do
-  root "projects#index"
+  devise_for :users, controllers: { sessions: 'users/sessions', registrations: "users/registrations"}
   resources :projects
+  root to: 'projects#index'
 end

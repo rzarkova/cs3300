@@ -1,26 +1,43 @@
 {
   "RSpec": {
     "coverage": {
-      "/root/cs3300/app/helpers/application_helper.rb": {
+      "/workspaces/cs3300/app/models/user.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/workspaces/cs3300/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/workspaces/cs3300/app/helpers/application_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/root/cs3300/app/helpers/projects_helper.rb": {
+      "/workspaces/cs3300/app/helpers/projects_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/root/cs3300/app/controllers/projects_controller.rb": {
+      "/workspaces/cs3300/app/controllers/projects_controller.rb": {
         "lines": [
           1,
           1,
-          null,
+          1,
           null,
           1,
-          6,
+          16,
           null,
           null,
           null,
@@ -77,7 +94,7 @@
           1,
           null,
           1,
-          16,
+          19,
           null,
           null,
           null,
@@ -87,27 +104,126 @@
           null
         ]
       },
-      "/root/cs3300/app/controllers/application_controller.rb": {
+      "/workspaces/cs3300/app/controllers/application_controller.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/root/cs3300/app/models/project.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
-      "/root/cs3300/app/models/application_record.rb": {
+      "/workspaces/cs3300/app/models/project.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/root/cs3300/app/channels/application_cable/channel.rb": {
+      "/workspaces/cs3300/app/controllers/users/registrations_controller.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          8,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/workspaces/cs3300/app/controllers/users/sessions_controller.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/workspaces/cs3300/app/channels/application_cable/channel.rb": {
         "lines": [
           0,
           0,
@@ -117,7 +233,7 @@
         "branches": {
         }
       },
-      "/root/cs3300/app/channels/application_cable/connection.rb": {
+      "/workspaces/cs3300/app/channels/application_cable/connection.rb": {
         "lines": [
           0,
           0,
@@ -127,7 +243,155 @@
         "branches": {
         }
       },
-      "/root/cs3300/app/jobs/application_job.rb": {
+      "/workspaces/cs3300/app/controllers/users/confirmations_controller.rb": {
+        "lines": [
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/workspaces/cs3300/app/controllers/users/omniauth_callbacks_controller.rb": {
+        "lines": [
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/workspaces/cs3300/app/controllers/users/passwords_controller.rb": {
+        "lines": [
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/workspaces/cs3300/app/controllers/users/unlocks_controller.rb": {
+        "lines": [
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/workspaces/cs3300/app/jobs/application_job.rb": {
         "lines": [
           0,
           null,
@@ -140,7 +404,7 @@
         "branches": {
         }
       },
-      "/root/cs3300/app/mailers/application_mailer.rb": {
+      "/workspaces/cs3300/app/mailers/application_mailer.rb": {
         "lines": [
           0,
           0,
@@ -151,6 +415,6 @@
         }
       }
     },
-    "timestamp": 1668119954
+    "timestamp": 1669159535
   }
 }

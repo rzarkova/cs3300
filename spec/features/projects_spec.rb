@@ -3,6 +3,14 @@ require 'rails_helper'
 RSpec.feature "Projects", type: :feature do
   context "Create new project" do
     before(:each) do
+       "Create new User" 
+        visit new_user_registration_path
+        within("form") do
+          fill_in "user_email", with: "test@gmail.com"
+          fill_in "user_password", with: "qwerty"
+          fill_in "user_password_confirmation", with: "qwerty"
+        end    
+        click_button "Sign up"
       visit new_project_path
       within("form") do
         fill_in "Title", with: "Test title"
@@ -21,9 +29,17 @@ RSpec.feature "Projects", type: :feature do
     end
   end
 
-  context "Update project" do
+  context "Update project - Signed in" do
     let(:project) { Project.create(title: "Test title", description: "Test content") }
     before(:each) do
+      "Create new User" 
+        visit new_user_registration_path
+        within("form") do
+          fill_in "user_email", with: "test@gmail.com"
+          fill_in "user_password", with: "qwerty"
+          fill_in "user_password_confirmation", with: "qwerty"
+        end    
+        click_button "Sign up"
       visit edit_project_path(project)
     end
 
@@ -70,8 +86,19 @@ RSpec.feature "Projects", type: :feature do
         expect(page).to have_content("Project was successfully updated")
         click_link "Back to projects"
       end
+      context "signed out" do
+        let!(:project) { Project.create(title: "Test title", description: "Test content") }
+          before (:each) do
+            visit projects_path
+            click_button "Sign out"
+            click_link "Show this project"
+          end
+    
+        scenario "should fail" do
+          click_button "Destroy this project"
+          expect(page).to have_content("Log in")
+        end
+      end
     end
   end
-
-  
 end
