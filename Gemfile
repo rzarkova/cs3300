@@ -25,7 +25,12 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+gem 'bootstrap', '~> 5.2.2'
+gem 'bootstrap-sass'
+gem 'jquery-rails'
+
 gem 'devise'
+gem "devise-bootstrap5"
 
 group :production do
   gem 'pg' # for Heroku deployment

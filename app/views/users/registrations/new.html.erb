@@ -1,29 +1,41 @@
-<h2>Sign up</h2>
+.centerPage {
+  vertical-align: middle;
+  text-align: center;
+  margin-top: 7%;
+}
+</style>
+<div class="card mt-4 shadow centerPage rounded d-flex align-items-center justify-content-center bg-dark text-white">
+    <div class="col-md-6">
+      <h2 class="pb-4"><%= t('.sign_up') %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+        <div class="mb-3">
+    <%= f.label :email, class: "form-label" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+        </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+        <div class="row mb-4">
+    <div class="col">
+      <%= f.label :password, class: "form-label" %>
+      <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <div class="col">
+      <%= f.label :password_confirmation, class: "form-label" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+    </div>
+        </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+        <div class="mb-3">
+    <%= f.submit t('.sign_up'), id: "sign_up_button", class: 'btn btn-primary' %>
+        </div>
+      <% end %>
 
-<%= link_to "Back", :back %>
+      <%= render "devise/shared/links" %>
+      <%= link_to "Back", root_path %>
+
+    </div>
+</div>
+  

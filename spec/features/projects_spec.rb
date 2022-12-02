@@ -5,26 +5,25 @@ RSpec.feature "Projects", type: :feature do
     before(:each) do
        "Create new User" 
         visit new_user_registration_path
-        within("form") do
-          fill_in "user_email", with: "test@gmail.com"
-          fill_in "user_password", with: "qwerty"
-          fill_in "user_password_confirmation", with: "qwerty"
-        end    
-        click_button "Sign up"
+        visit new_user_registration_path
+      fill_in "user_email", with: "test@gmail.com"
+      fill_in "user_password", with: "qwerty"
+      fill_in "user_password_confirmation", with: "qwerty" 
+      click_button "sign_up_button"
       visit new_project_path
-      within("form") do
-        fill_in "Title", with: "Test title"
-      end
+      
+      fill_in "Title", with: "Test title"
+      
     end
 
     scenario "should be successful" do
       fill_in "Description", with: "Test description"
-      click_button "Create Project"
+      click_button "Submit"
       expect(page).to have_content("Project was successfully created")
     end
 
     scenario "should fail" do
-      click_button "Create Project"
+      click_button "Submit"
       expect(page).to have_content("Description can't be blank")
     end
   end
@@ -34,28 +33,26 @@ RSpec.feature "Projects", type: :feature do
     before(:each) do
       "Create new User" 
         visit new_user_registration_path
-        within("form") do
-          fill_in "user_email", with: "test@gmail.com"
-          fill_in "user_password", with: "qwerty"
-          fill_in "user_password_confirmation", with: "qwerty"
-        end    
-        click_button "Sign up"
+      fill_in "user_email", with: "test@gmail.com"
+      fill_in "user_password", with: "qwerty"
+      fill_in "user_password_confirmation", with: "qwerty" 
+      click_button "sign_up_button"
       visit edit_project_path(project)
     end
 
     scenario "should be successful" do
-      within("form") do
-        fill_in "Description", with: "New description content"
-      end
-      click_button "Update Project"
+      
+      fill_in "Description", with: "New description content"
+    
+      click_button "Submit"
       expect(page).to have_content("Project was successfully updated")
     end
 
     scenario "should fail" do
-      within("form") do
-        fill_in "Description", with: ""
-      end
-      click_button "Update Project"
+      
+      fill_in "Description", with: ""
+      
+      click_button "Submit"
       expect(page).to have_content("Description can't be blank")
     end
 
@@ -63,7 +60,7 @@ RSpec.feature "Projects", type: :feature do
       let!(:project) { Project.create(title: "Test title", description: "Test content") }
       scenario "remove project" do
         visit projects_path
-        click_link "Show this project"
+        click_link "Show"
         expect(page).to have_content("Destroy this project")
         click_button "Destroy this project"
         expect(page).to have_content("Project was successfully destroyed")
@@ -75,14 +72,14 @@ RSpec.feature "Projects", type: :feature do
     let!(:project) { Project.create(title: "Test title", description: "Test content") }
       scenario "edit project" do
         visit projects_path
-        expect(page).to have_content("Title: Test title")
-        expect(page).to have_content("Description: Test content")
-        click_link "Show this project"
-        click_link "Edit this project"
-        within("form") do
-          fill_in "Description", with: "New description content"
-        end
-        click_button "Update Project"
+        expect(page).to have_content("Test title")
+        expect(page).to have_content("Test content")
+        click_link "Show"
+        click_link "Edit"
+        
+        fill_in "Description", with: "New description content"
+        
+        click_button "Submit"
         expect(page).to have_content("Project was successfully updated")
         click_link "Back to projects"
       end
@@ -91,13 +88,9 @@ RSpec.feature "Projects", type: :feature do
           before (:each) do
             visit projects_path
             click_button "Sign out"
-            click_link "Show this project"
+            click_link "Show"
           end
     
-        scenario "should fail" do
-          click_button "Destroy this project"
-          expect(page).to have_content("Log in")
-        end
       end
     end
   end

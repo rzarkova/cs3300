@@ -1,23 +1,56 @@
-<p style="color: green"><%= notice %></p>
+<style>
+body {
+    background-color: lightgrey;
+}
+.centerPage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+.center {
+  position: absolute;
+  top: 15%;
+  text-align: center;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+}
+</style>
 
-<h1>Projects</h1>
+<p id="notice"><%= notice %></p>
 
-<div id="projects">
-  <% @projects.each do |project| %>
-    <%= render project %>
-    <p>
-      <%= link_to "Show this project", project %>
-    </p>
-  <% end %>
+<div class='row'>
+  <div class='jumbotron center jumbotron-fluid'>
+    <div class='container center'>
+      <p><h2>Welcome to my portfolio!</h2></p>
+      <ln>This website was made by Robert Zarkovacki.You can contact me at: rzarkova@uccs.edu</ln>
+      <br>
+      <ln>These are some of the Software projects I have worked on (including this website)</ln>
+    </div>
+  </div>
 </div>
 
-<%= link_to "New project", new_project_path %>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-<% if user_signed_in? %> 
- <div> Welcome <%= current_user.email %> </div> 
-  <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
-<% else %>
-<%= link_to "Sign in", user_session_path %> 
-<%= link_to "Sign up", new_user_registration_path %> 
+<div class='container centerPage'>
+  <h2>Projects</h2>
+  <% @projects.each do |project| %> 
+  <div class='row'>      
+    <!-- how to make them like boxes next to each other? -->
+    <div class='card'>
+      <div class='card-body'>
+        <p><h4><%= project.title %></h4></p>
+        <p><%= project.description %></p>
+        <td><%= link_to 'Show', project %></td>
+        <% if user_signed_in? %>
+          <td><%= link_to 'Edit', edit_project_path(project) %></td>
+          <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </div>
+    </div>
+  </div>
 <% end %>
+<% if user_signed_in? %>
+<td><%= link_to 'New', new_project_path %></td>
+<% end %>
+</div>

@@ -1,12 +1,24 @@
-<div id="<%= dom_id project %>">
-  <p>
-    <strong>Title:</strong>
-    <%= project.title %>
-  </p>
+<style>
+body {
+    background-color: lightgrey;
+}
+.centerPage {
+  vertical-align: middle;
+  text-align: center;
+  margin-top: 7%;
+}
+</style>
+<center>
+  <div class="container centerPage">
+    <div id="<%= dom_id project %>">
+      <p>
+        <strong><%= project.title %></strong>
+      </p>
 
-  <p>
-    <strong>Description:</strong>
-    <%= project.description %>
-  </p>
+      <p>
+        <%= project.description %>
+      </p>
 
-</div>
+    </div>
+  </div>
+</center>

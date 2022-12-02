@@ -5,12 +5,28 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
+    <link rel="stylesheet" media="screen" href="https://pure-savannah-51484.herokuapp.com/projects/4/assets/bootstrap-d237ee601c53214e24cba4176f134af8037e997882c1cedfe89dfd2d012464b6.css">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
+
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Navbar</a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav d-flex flex-row-reverse">
+        <% if user_signed_in? %> 
+            <div> Welcome <%= current_user.email %> </div> 
+            <%= button_to "Sign out", destroy_user_session_path, method: :delete, :class => "btn btn-outline-light btn-default" %> 
+        <% else %>
+            <%= button_to "Sign in", new_user_session_path, method: :get, :class => "btn btn-outline-light btn-default" %>
+            <%= button_to "Sign up", new_user_registration_path, method: :get, :class => "btn btn-outline-light btn-defualt" %>
+          <% end %>
+      </ul>
+    </div>
+  </nav>
     <%= yield %>
   </body>
 </html>
